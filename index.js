@@ -59,8 +59,8 @@ app.post("/api/post", async (req, res) => {
     if(token == process.env.TOKEN) {
         let htmlContent = marked.parse(content)
         const fileName = crypto.randomUUID()
-        Bun.write(`${__dirname}/public/journal/${fileName}.html`, (await Bun.readableStreamToText(indexHtml.stream())).replaceAll("#htmlContent", htmlContent).replaceAll("#title", req.body.title))
-        Bun.write(`${__dirname}/public/index.html`, (await Bun.readableStreamToText(journalHtml.stream())).replaceAll("#title", req.body.title).replaceAll("#description", req.body.description).replaceAll("#imgSrc", req.body.img).replaceAll("#link", `journal/${fileName}.html`))
+        Bun.write(`${__dirname}/public/journal/${fileName}.html`, (await Bun.readableStreamToText(journalHtml.stream())).replaceAll("#htmlContent", htmlContent).replaceAll("#title", req.body.title))
+        Bun.write(`${__dirname}/public/index.html`, (await Bun.readableStreamToText(indexHtml.stream())).replaceAll("#title", req.body.title).replaceAll("#description", req.body.description).replaceAll("#imgSrc", req.body.img).replaceAll("#link", `journal/${fileName}.html`))
         Bun.write(`${__dirname}/public/journaux.html`, (await Bun.readableStreamToText(journauxHtml.stream())).replaceAll("<!-- #article -->", `<!-- #article --><div class="new" onclick="location.href='journal/${fileName}.html'"><img src="${req.body.img}" alt="Image d'illustration"><div class="texts"><h2>${req.body.title}</h2><p>${req.body.description}</p></div></div>\n`))
         res.send({"link": `${fileName}.html`})
     }
