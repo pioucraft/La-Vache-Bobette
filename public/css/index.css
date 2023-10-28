@@ -1,0 +1,108 @@
+a {
+    color: black;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+}
+
+.nav {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: antiquewhite;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 5vh;
+}
+
+.nav-item {
+    margin-left: 1.5vw;
+    font-size: large;
+    margin-top: 1vh;
+}
+
+.title-logo {
+    height: 13vh;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 4vh;
+}
+
+.title-text {
+    text-align: center;
+    margin-top: -2vh;
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    padding: 1vh;
+    justify-content: space-between;
+    background-color:darkgray;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-top: 10vh;
+    height: auto;
+}
+
+@media screen and (max-width: 110vh) {
+    .title-logo {
+        height: 13vw;
+    }
+    .title-text {
+        font-size: large;
+    }
+}
+
+.new {
+    margin-left: 3vw;
+    display: flex;
+    flex-direction: row;
+    margin-left: 2vw;
+    border: solid black;
+    border-radius: 1vw;
+    margin-right: 3vw;
+    cursor: pointer;
+}
+
+img {
+    max-width: 50%;
+    height: auto;
+}
+
+@media screen and (max-width: 120vh) {
+    .new {
+        flex-direction: column;
+    }
+    img {
+        max-width: 100%;
+    }
+}
+
+.title-logo {
+    max-width: 100%;
+}
+
+.after {
+    margin-left: 3vw;
+    margin-top: 5vh;
+}
+
+button {
+    background-color: white;
+    border: solid;
+    border-radius: 1vh;
+    padding: 0.5%;
+}
+
+.texts {
+    margin-left: 1vw;
+    margin-top: 1vw;
+}

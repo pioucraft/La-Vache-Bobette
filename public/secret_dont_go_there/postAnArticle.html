@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>title</p>
+    <textarea type="text" name="" id="title"></textarea>
+
+    <p>description</p>
+    <textarea type="text" name="" id="description"></textarea>
+
+    <p>image link</p>
+    <textarea type="text" name="" id="image-link"></textarea>
+
+    <p>text </p>
+    <textarea type="text" name="" id="text" cols="100" rows="50"></textarea>
+    
+    <p>password</p>
+    <input type="password" id="password" ></textarea>
+
+    <button onclick="yeahhhh()">PUBLISH !!!!</button>
+    <script>
+        function yeahhhh() {
+            let body = {
+                "title": document.getElementById("title").value, 
+                "description": document.getElementById("description").value,
+                "token": document.getElementById("password").value,
+                "content": document.getElementById("text").value.split("\n"),
+                "img": document.getElementById("image-link").value
+            }
+            fetch("http://localhost:3036/api/post", {method: "POST", body: JSON.stringify(body), headers: {"Content-Type": "application/json"}})
+        }
+    </script>
+    
+    
+    
+    
+    
+    <div style="margin-top: 100vh;">
+        <form class="form">
+            <input type="file" name="file" id="files" class="form-file" >
+            <button type="submit" class="form-button">ajouter la photo sélectionée</button>
+        </form>
+       <script>
+        const form = document.querySelector('form');
+        form.addEventListener('submit', (e) => {
+            
+            e.preventDefault();
+            // Prevents HTML handling submission
+            const name = ""
+            const files = document.getElementById("files");
+            const formData = new FormData();
+            // Creates empty formData object
+            formData.append("name", name.value);
+            // Appends value of text input
+            for(let i =0; i < files.files.length; i++) {
+                formData.append("files", files.files[i]);
+            }
+            // Appends value(s) of file input
+            // Post data to Node and Express server:
+            fetch('/api/post-image/'+document.getElementById("password").value, {
+                method: 'POST',
+                body: formData, // Payload is formData object
+            })
+            .then(res => res.json())
+            .then(data => { 
+                console.log(data)
+                document.getElementById("text").value += `/images/${data.filename}`
+            });
+        })
+    </script>
+    </div>
+</body>
+</html>
