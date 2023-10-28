@@ -7,7 +7,7 @@
 </head>
 <body>
     <p>title</p>
-    <textarea type="text" name="" id="title"></textarea>
+    <textarea type="text" name="" id="title">*[date]*</textarea>
 
     <p>description</p>
     <textarea type="text" name="" id="description"></textarea>
@@ -16,7 +16,7 @@
     <textarea type="text" name="" id="image-link"></textarea>
 
     <p>text </p>
-    <textarea type="text" name="" id="text" cols="100" rows="50"></textarea>
+    <textarea type="text" name="" id="text" cols="100" rows="50">*[title]*</textarea>
     
     <p>password</p>
     <input type="password" id="password" ></textarea>
@@ -31,7 +31,7 @@
                 "content": document.getElementById("text").value.split("\n"),
                 "img": document.getElementById("image-link").value
             }
-            fetch("http://localhost:3036/api/post", {method: "POST", body: JSON.stringify(body), headers: {"Content-Type": "application/json"}})
+            fetch("/api/post", {method: "POST", body: JSON.stringify(body), headers: {"Content-Type": "application/json"}})
         }
     </script>
     
