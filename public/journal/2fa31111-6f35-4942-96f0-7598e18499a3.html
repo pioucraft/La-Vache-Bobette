@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>La Vache Bobette</title>
+    <title>La Vache Bobette - *[date]*</title>
 </head>
 <body>
     <nav class="nav">
@@ -15,15 +15,16 @@
             <img src="/images/logo-black.png" alt="logo de La Vache Bobette" class="title-logo">
             <h2 class="title-text">La démocratie vit dans la lumière</h2>
         </h1>
-        <div class="new" onclick="location.href='journal/2fa31111-6f35-4942-96f0-7598e18499a3.html'">
-            <img src="" alt="Image d'illustration">
-            <div class="texts">
-                <h2>*[date]*</h2>
-                <p></p>
-            </div>
-            
+        <div class="content">
+            <p><em>[title]</em></p>
+
+        </div>
+        <div class="share">
+            <button onclick="partager()">Partager</button>
+            <button class="twitter" onclick="twitter()">Tweter</button>
         </div>
         <div class="after">
+            <p>Pour me soutenir, vous pouvez vous abonner à mon <a href="https://patreon.com/lavachebobette" style="color: blue;">Patreon</a>.</p>
             <p>Cliquez <a href="/journaux.html" style="color: blue;">ici</a> pour voir les autres journaux.</p>
             <p>Pour être mis au courant à la sortie des nouveaux journaux, vous pouvez nous suivre sur <a href="https://tooting.ch/@lavachebobette" style="color: blue;">Mastodon</a> ou sur <a style="color: blue;" href="https://twitter.com/lavachebobette">Twitter</a>...</p>
             <p>... Ou vous rappeler qu'un nouveau journal est censé sortir tous les jours vers 18h.</p>
@@ -36,9 +37,8 @@
         <a rel="me" href="https://tooting.ch/@lavachebobette">Mastodon</a>
         <a href="mailto:contact@lavachebobette.ch">contact@lavachebobette.ch</a>
         <a href="https://tooting.ch/@lavachebobette.rss">RSS</a>
-        <a href="/archives">(Les archives secrètes !)</a>
     </footer>
-    <link rel="stylesheet" href="css/index.css">
-    <script src="js/index.js"></script>
+    <link rel="stylesheet" href="../css/journal.css">
+    <script src="../js/journal.js"></script>
 </body>
 </html>
